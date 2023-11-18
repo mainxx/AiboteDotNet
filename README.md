@@ -9,3 +9,24 @@ Aibote能力：
         4、Android远程投屏，底层自主研发，可在一台电脑监控观察多台安卓RPA机器人运行状态并批量管理操作
         5、自建OCR服务器，支持文字识别和定位，免费且不限制使用次数！
         6、自研AiboteScriptUI界面开发工具，提供人机交互功能，打包exe发布机器人可以在离线环境运行！
+
+
+使用参考：
+``` C#
+    public class AndroidBotHandler : TcpConnectionHandler
+    {
+        static readonly NLog.Logger LOGGER = NLog.LogManager.GetCurrentClassLogger();
+        public override BotOptions CurBotOptions { get; set; } = BotOptions.AndroidBot;
+
+        protected override async Task OnRun(TcpChannel channel, Session session)
+        {
+            IAndroidBot androidBot = new AndroidBot(channel);
+            await Task.Delay(1000);
+            await androidBot.InitOcr("192.168.2.105", 9527);
+            await Task.Delay(1000);
+            await androidBot.StartWeChatApp();
+            await Task.Delay(3000);
+            //滑动
+        }
+    }
+```
