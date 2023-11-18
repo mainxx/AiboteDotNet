@@ -9,9 +9,9 @@ namespace AiboteDotNet.AndroidBot
 {
     public partial class AndroidBot : IUrlRequest
     {
-        public Task<string> RrlRequest(string url, string requestType, string headers = "null", string postData = "null")
+        public Task<string> UrlRequest(string url, string requestType, string headers = "null", string postData = "null")
         {
-            throw new NotImplementedException();
+            return _AndroidBotCore.UrlRequest(url, requestType, headers, postData);
         }
     }
 }

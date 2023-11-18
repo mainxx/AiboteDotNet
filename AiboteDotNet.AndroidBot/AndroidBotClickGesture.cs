@@ -25,7 +25,7 @@ namespace AiboteDotNet.AndroidBot
             return _AndroidBotCore.DispatchGesture($"{x}/{y}\n{x1}/{y1}", duration);
         }
 
-        public Task<bool> DispatchGesture(Point begin, Point end, int duration)
+        public Task<bool> DispatchGesture(BotPoint begin, BotPoint end, int duration)
         {
             return _AndroidBotCore.DispatchGesture($"{begin.ToString()}\n{begin.ToString()}", duration);
         }

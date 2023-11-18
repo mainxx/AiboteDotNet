@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace AiboteDotNet.AndroidBot.DataModel
 {
-    public class Point
+    public class BotPoint
     {
         static readonly NLog.Logger LOGGER = NLog.LogManager.GetCurrentClassLogger();
         public int X { get; set; }
@@ -16,20 +16,20 @@ namespace AiboteDotNet.AndroidBot.DataModel
         {
             return $"{X}/{Y}";
         }
-        public static Point By(string str)
+        public static BotPoint By(string str)
         {
             var point = str.Split("|");
             double.TryParse(point[0], out double x);
             double.TryParse(point[1], out double y);
-            return new Point { X = (int)x, Y = (int)y };
+            return new BotPoint { X = (int)x, Y = (int)y };
         }
-        public static List<Point> ByList(string str)
+        public static List<BotPoint> ByList(string str)
         {
-            var points = new List<Point>();      
+            var points = new List<BotPoint>();      
             var list = str.Split("/");
             foreach (var item in list)
             {
-                points.Add(Point.By(item));
+                points.Add(BotPoint.By(item));
             }
             return points;
         }

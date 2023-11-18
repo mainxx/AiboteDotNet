@@ -31,7 +31,7 @@ namespace AiboteDotNet.AndroidBot
         // 参数七：二值化阈值
         // 参数八：二值化最大值
         // 参数九：图片缩放率, 默认为 1.0 原大小。小于1.0缩小，大于1.0放大
-        public Task<System.Drawing.Image> TakeScreenshot(int leftTopX, int leftTopY, int rightBottomX, int rightBottomY, int AlgorithmType, int threshold, int maxValue, double zoomRate);
+        public Task<System.Drawing.Image> TakeScreenshot(int leftTopX, int leftTopY, int rightBottomX, int rightBottomY, int AlgorithmType, int threshold, int maxValue, double scale);
         //获取色值
         // 参数二：x坐标
         // 参数三：y坐标
@@ -47,14 +47,14 @@ namespace AiboteDotNet.AndroidBot
         // 参数九：二值化阈值
         // 参数十：二值化最大值
         // 参数十一：多个坐标点
-        public Task<List<Point>> FindImage(string savePath, int leftTopX, int leftTopY, int rightBottomX, int rightBottomY, double similarity, int AlgorithmType, int threshold, int maxValue, int multiplePoints);
+        public Task<List<BotPoint>> FindImage(string savePath, int leftTopX, int leftTopY, int rightBottomX, int rightBottomY, double similarity, int AlgorithmType, int threshold, int maxValue, int multiplePoints);
         //找动态图
         // 参数二：前后两张图相隔的时间，单位毫秒
         // 参数三：矩形左上角x坐标
         // 参数四：矩形左上角y坐标
         // 参数五：矩形右下角x坐标
         // 参数六：矩形右下角y坐标
-        public Task<List<Point>> FindAnimation(int frameRate, int leftTopX, int leftTopY, int rightBottomX, int rightBottomY);
+        public Task<List<BotPoint>> FindAnimation(int frameRate, int leftTopX, int leftTopY, int rightBottomX, int rightBottomY);
         //找色
         // 参数二：主颜色值
         // 参数三：相对偏移的颜色点，以 "x坐标+y坐标+色值" 字符串形式 10/20/#e7f0f7
@@ -63,7 +63,7 @@ namespace AiboteDotNet.AndroidBot
         // 参数六：矩形右下角x坐标
         // 参数七：矩形右下角y坐标
         // 参数八：相似度
-        public Task<List<Point>> FindColor(string mainColor, string colorPoints, int leftTopX, int leftTopY, int rightBottomX, int rightBottomY, int similarity);
+        public Task<List<BotPoint>> FindColor(string mainColor, string colorPoints, int leftTopX, int leftTopY, int rightBottomX, int rightBottomY, int similarity);
         //比色
         // 参数二：主颜色值所在的X坐标
         // 参数三：主颜色值所在的Y坐标

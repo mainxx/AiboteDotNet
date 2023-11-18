@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace AiboteDotNet.AndroidBot.DataModel
 {
-    public class Rectangle
+    public class BotRectangle
     {
         // int leftTopX, int leftTopY, int rightBottomX, int rightBottomY
         public int LeftTopX { get; set; }

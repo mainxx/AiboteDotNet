@@ -37,10 +37,10 @@ namespace AiboteDotNet.AndroidBot
             return this.SendData<bool>("saveScreenshot", savePath, leftTopX, leftTopY, rightBottomX, rightBottomY, AlgorithmType, threshold, maxValue);
         }
 
-        public async Task<System.Drawing.Image> TakeScreenshot(int leftTopX, int leftTopY, int rightBottomX, int rightBottomY, int AlgorithmType, int threshold, int maxValue, double zoomRate)
+        public async Task<System.Drawing.Image> TakeScreenshot(int leftTopX, int leftTopY, int rightBottomX, int rightBottomY, int AlgorithmType, int threshold, int maxValue, double scale)
         {
 
-            var bytes = await this.SendDataByBytes("takeScreenshot", leftTopX, leftTopY, rightBottomX, rightBottomY, AlgorithmType, threshold, maxValue, zoomRate);
+            var bytes = await this.SendDataByBytes("takeScreenshot", leftTopX, leftTopY, rightBottomX, rightBottomY, AlgorithmType, threshold, maxValue, scale);
             if (bytes != null)
             {
                 MemoryStream ms = new MemoryStream(bytes);
@@ -55,32 +55,32 @@ namespace AiboteDotNet.AndroidBot
             return this.SendData<string>("getColor", x, y);
         }
 
-        public async Task<List<Point>> FindImage(string savePath, int leftTopX, int leftTopY, int rightBottomX, int rightBottomY, double similarity, int AlgorithmType, int threshold, int maxValue, int multiplePoints)
+        public async Task<List<BotPoint>> FindImage(string savePath, int leftTopX, int leftTopY, int rightBottomX, int rightBottomY, double similarity, int AlgorithmType, int threshold, int maxValue, int multiplePoints)
         {
             var str = await this.SendData<string>("getColor", savePath, leftTopX, leftTopY, rightBottomX, rightBottomY, similarity, AlgorithmType, threshold, maxValue, multiplePoints);
             var list = str.Split("/");
-            List<Point> points = new List<Point>();
+            List<BotPoint> points = new List<BotPoint>();
             foreach (var item in list)
             {
                 var point = item.Split("|");
                 double.TryParse(point[0], out double x);
                 double.TryParse(point[1], out double y);
-                points.Add(new Point { X = (int)x, Y = (int)y });
+                points.Add(new BotPoint { X = (int)x, Y = (int)y });
             }
             return points;
         }
 
-        public async Task<List<Point>> FindAnimation(int frameRate, int leftTopX, int leftTopY, int rightBottomX, int rightBottomY)
+        public async Task<List<BotPoint>> FindAnimation(int frameRate, int leftTopX, int leftTopY, int rightBottomX, int rightBottomY)
         {
             var str = await this.SendData<string>("findAnimation", frameRate, leftTopX, leftTopY, rightBottomX, rightBottomY);
 
-            return Point.ByList(str);
+            return BotPoint.ByList(str);
         }
 
-        public async Task<List<Point>> FindColor(string mainColor, string colorPoints, int leftTopX, int leftTopY, int rightBottomX, int rightBottomY, int similarity)
+        public async Task<List<BotPoint>> FindColor(string mainColor, string colorPoints, int leftTopX, int leftTopY, int rightBottomX, int rightBottomY, int similarity)
         {
             var str = await this.SendData<string>("findColor", mainColor, colorPoints, leftTopX, leftTopY, rightBottomX, rightBottomY, similarity);
-            return Point.ByList(str);
+            return BotPoint.ByList(str);
         }
 
         public Task<bool> CompareColor(int x, int y, string mainColor, string colorPoints, int leftTopX, int leftTopY, int rightBottomX, int rightBottomY, int similarity)

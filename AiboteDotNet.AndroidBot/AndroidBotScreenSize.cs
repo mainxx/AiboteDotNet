@@ -9,9 +9,9 @@ namespace AiboteDotNet.AndroidBot
 {
     public partial class AndroidBot : IScreenSize
     {
-        public (int width, int height) GetWindowSize()
+        public Task<(int width, int height)> GetWindowSize()
         {
-            throw new NotImplementedException();
+            return _AndroidBotCore.GetWindowSize();
         }
     }
 }

@@ -9,6 +9,6 @@ namespace AiboteDotNet.AndroidBot.Api
 {
     public interface IUrlRequest
     {
-        public Task<string> RrlRequest(string url, string requestType, string headers = "null", string postData = "null");
+        public Task<string> UrlRequest(string url, string requestType, string headers = "null", string postData = "null");
     }
 }

@@ -9,9 +9,9 @@ namespace AiboteDotNet.AndroidBot
 {
     public partial class AndroidBot : IText
     {
-        public Task<string> SsendKeys(string text)
+        public Task<bool> SendKeys(string text)
         {
-            throw new NotImplementedException();
+            return _AndroidBotCore.SendKeys(text);
         }
     }
 }

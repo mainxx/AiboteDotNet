@@ -22,7 +22,5 @@ namespace AiboteDotNet.AndroidBot
             var result = await android.Channel.Write(funName.GetDataPacket(objects));
             return result;
         }
-
-
     }
 }

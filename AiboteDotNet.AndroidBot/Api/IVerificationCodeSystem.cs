@@ -1,4 +1,5 @@
-﻿using System;
+﻿using AiboteDotNet.AndroidBot.DataModel;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Reflection.Emit;
@@ -12,10 +13,10 @@ namespace AiboteDotNet.AndroidBot.Api
     /// </summary>
     public interface IVerificationCodeSystem
     {
-        public Task<string> GetCaptcha(string filePath, string username, string password, string softId, string codeType, string lenMin = "0");
+        public Task<GetCaptchaModel> GetCaptcha(string filePath, string username, string password, string softId, string codeType, int lenMin = 0);
 
-        public Task<string> ErrorCaptcha(string username, string password, string softId, string picId);
+        public Task<ErrorCaptchaModel> ErrorCaptcha(string username, string password, string softId, string picId);
 
-        public Task<string> ScoreCaptcha(string username, string password);
+        public Task<ScoreCaptchaModel> ScoreCaptcha(string username, string password);
     }
 }

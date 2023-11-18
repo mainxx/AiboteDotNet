@@ -10,7 +10,7 @@ namespace AiboteDotNet.AndroidBot.DataModel
     {
         public int Duration { get; set; }
 
-        public List<Point> Points { get; set; }
+        public List<BotPoint> Points { get; set; }
 
         public string ByGesturePathStrData()
         {

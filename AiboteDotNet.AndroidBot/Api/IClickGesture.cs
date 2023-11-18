@@ -19,7 +19,7 @@ namespace AiboteDotNet.AndroidBot.Api
         public Task<bool> SwipeDownToUp(int duration);
         public Task<bool> DispatchGesture(GesturePath gesturePath);
         public Task<bool> DispatchGesture(int x, int y, int x1, int y1, int duration);
-        public Task<bool> DispatchGesture(Point begin, Point end, int duration);
+        public Task<bool> DispatchGesture(BotPoint begin, BotPoint end, int duration);
         public Task<bool> DispatchGestures(GesturePath[] gesturesPath);
     }
 }

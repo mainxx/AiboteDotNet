@@ -8,6 +8,6 @@ namespace AiboteDotNet.AndroidBot.Api
 {
     public interface IScreenSize
     {
-        public (int width,int height) GetWindowSize();
+        public Task<(int width, int height)> GetWindowSize();
     }
 }

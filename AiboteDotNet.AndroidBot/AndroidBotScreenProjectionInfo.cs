@@ -11,22 +11,22 @@ namespace AiboteDotNet.AndroidBot
     {
         public Task<string> GetAndroidId()
         {
-            throw new NotImplementedException();
+            return _AndroidBotCore.GetAndroidId();
         }
 
         public Task<string> GetGroup()
         {
-            throw new NotImplementedException();
+            return _AndroidBotCore.GetGroup();
         }
 
         public Task<string> GetIdentifier()
         {
-            throw new NotImplementedException();
+            return _AndroidBotCore.GetIdentifier();
         }
 
         public Task<string> GetTitle()
         {
-            throw new NotImplementedException();
+            return _AndroidBotCore.GetTitle();
         }
     }
 }

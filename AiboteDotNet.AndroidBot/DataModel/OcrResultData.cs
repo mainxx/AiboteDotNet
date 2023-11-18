@@ -10,10 +10,10 @@ namespace AiboteDotNet.AndroidBot.DataModel
     public class PositionConnent
     {
         static readonly NLog.Logger LOGGER = NLog.LogManager.GetCurrentClassLogger();
-        public Point TopLeft { get; set; }
-        public Point TopRight { get; set; }
-        public Point BottomLeft { get; set; }
-        public Point BottomRight { get; set; }
+        public BotPoint TopLeft { get; set; }
+        public BotPoint TopRight { get; set; }
+        public BotPoint BottomLeft { get; set; }
+        public BotPoint BottomRight { get; set; }
         public string Connent { get; set; }
         public double Similarity { get; set; }
 
@@ -21,11 +21,11 @@ namespace AiboteDotNet.AndroidBot.DataModel
         /// 取得中间位置
         /// </summary>
         /// <returns></returns>
-        public Point GetMiddlePosition()
+        public BotPoint GetMiddlePosition()
         {
             int middleX = (TopLeft.X + BottomRight.X) / 2;
             int middleY = (TopLeft.Y + BottomRight.Y) / 2;
-            return new Point { X = middleX, Y = middleY };
+            return new BotPoint { X = middleX, Y = middleY };
         }
 
         public static List<PositionConnent> By(string json)
@@ -38,7 +38,7 @@ namespace AiboteDotNet.AndroidBot.DataModel
                     JArray rootArray = JArray.Parse(json);
                     foreach (JArray item in rootArray)
                     {
-                        var points = item[0].Select(p => new Point { X = (int)p[0], Y = (int)p[1] }).ToList();
+                        var points = item[0].Select(p => new BotPoint { X = (int)p[0], Y = (int)p[1] }).ToList();
                         var data = (JArray)item[1];
 
                         PositionConnent positionConnent = new PositionConnent

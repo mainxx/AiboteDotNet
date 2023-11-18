@@ -9,6 +9,6 @@ namespace AiboteDotNet.AndroidBot.Api
 {
     public interface IText
     {
-        public Task<string> SsendKeys(string text);
+        public Task<bool> SendKeys(string text);
     }
 }

@@ -11,7 +11,7 @@ namespace AiboteDotNet.AndroidBot
     {
         public Task<bool> ShowToast(string text, int duration)
         {
-            throw new NotImplementedException();
+            return _AndroidBotCore.ShowToast(text, duration);
         }
     }
 }
