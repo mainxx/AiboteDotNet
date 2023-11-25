@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace AiboteDotNet.AndroidBot.DataModel
+namespace AiboteDotNet.Core.DataModel
 {
     public class BotPoint
     {

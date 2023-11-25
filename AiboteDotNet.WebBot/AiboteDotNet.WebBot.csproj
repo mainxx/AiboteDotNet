@@ -6,4 +6,13 @@
     <Nullable>enable</Nullable>
   </PropertyGroup>
 
+  <ItemGroup>
+    <ProjectReference Include="..\AiboteDotNet.Core\AiboteDotNet.Core.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Folder Include="DataModel\" />
+    <Folder Include="Api\" />
+  </ItemGroup>
+
 </Project>

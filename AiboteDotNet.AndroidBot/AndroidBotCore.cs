@@ -1,4 +1,5 @@
 ﻿using AiboteDotNet.AndroidBot.DataModel;
+using AiboteDotNet.Core.DataModel;
 using AiboteDotNet.Core.Tcp;
 using Newtonsoft.Json;
 using Newtonsoft.Json.Linq;
