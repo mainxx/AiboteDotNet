@@ -8,8 +8,14 @@ namespace AiboteNotNet.App.Common
     {
         public static Settings Ins;
 
-        public string serverIp;
-        public int serverPort;
+        public string androidBotServerIp;
+        public int androidBotServerPort;
+
+        public string windowsBotServerIp;
+        public int windowsBotServerPort;
+
+        public string webBotServerIp;
+        public int webBotServerPort;
 
         public static bool AppRunning { get; internal set; }
         public static DateTime LauchTime { get; internal set; }

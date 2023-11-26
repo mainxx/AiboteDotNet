@@ -1,5 +1,6 @@
 ﻿using AiboteDotNet.AndroidBot.Api;
 using AiboteDotNet.AndroidBot.DataModel;
+using AiboteDotNet.Core.DataModel;
 using System;
 using System.Collections.Generic;
 using System.Linq;

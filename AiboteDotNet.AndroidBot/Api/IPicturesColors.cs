@@ -1,4 +1,5 @@
 ﻿using AiboteDotNet.AndroidBot.DataModel;
+using AiboteDotNet.Core.DataModel;
 using Microsoft.Extensions.Options;
 using System;
 using System.Collections.Generic;

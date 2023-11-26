@@ -1,7 +1,8 @@
 ﻿{
-  "serverIp": "127.0.0.1",
-  "serverPort": 16679,
+  "androidBotServerIp": "127.0.0.1",
   "androidBotServerPort": 16679,
+  "windowsBotServerIp": "127.0.0.1",
   "windowsBotServerPort": 16689,
+  "webBotServerIp": "127.0.0.1",
   "webBotServerPort": 16699
 }

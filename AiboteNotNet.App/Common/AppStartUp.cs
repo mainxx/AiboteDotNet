@@ -1,6 +1,8 @@
 ﻿using AiboteDotNet.AndroidBot;
 using AiboteDotNet.Core.Tcp;
 using AiboteNotNet.App.AndroidLogic;
+using AiboteNotNet.App.WebLogic;
+using AiboteNotNet.App.WindowsLogic;
 using Microsoft.AspNetCore.Connections;
 using NLog;
 using NLog.Config;
@@ -49,7 +51,9 @@ namespace AiboteNotNet.App.Common
                 Console.WriteLine("init NLog config...");
                 Settings.Load("Configs/app.json");
                 Console.WriteLine("init config...");
-                await TcpServer.Start(Settings.Ins.serverPort, builder => builder.UseConnectionHandler<AndroidBotHandler>());
+                await TcpServer.Start(Settings.Ins.androidBotServerPort, builder => builder.UseConnectionHandler<AndroidBotHandler>());
+                await TcpServer.Start(Settings.Ins.windowsBotServerPort, builder => builder.UseConnectionHandler<WindowsBotHandler>());
+                await TcpServer.Start(Settings.Ins.webBotServerPort, builder => builder.UseConnectionHandler<WebBotHandler>());
                 return true;
             }
             catch (Exception e)
